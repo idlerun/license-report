@@ -5,6 +5,11 @@ tags: gradle license
 date: 2016-05-25
 ---
 
+Create a summary for all project dependency licenses.
+Right now just takes the `Gradle-License-Report` plugin output and cleans
+it up to a standardized JSON dictionary format and an HTML format.
+
+
 ## Generate Gradle Dependencies
 
 Generate a CSV report using Gradle-License-Report Plugin
@@ -38,8 +43,11 @@ Convert to JSON and group up by normalized licenses.
 I could have done this by modifying the Gradle plugin, but I also want to leave 
 open the option of processing non-gradle output.
 
-#### [process_gradle.js](https://github.com/idlerun/license-report/blob/master/process_gradle.js)
-Run from the project folder. Will read in licenses.csv and output a licenses.json of the form
+### [process_gradle.js](https://github.com/idlerun/license-report/blob/master/process_gradle.js)
+Run from the project folder. Will read in licenses.csv and output a licenses.json and license.html
+
+
+#### JSON Output
 
 ```json
 {
@@ -67,4 +75,6 @@ Run from the project folder. Will read in licenses.csv and output a licenses.jso
 ...
 ```
 
+#### HTML Output ([to_html.js](https://github.com/idlerun/license-report/blob/master/to_html.js))
 
+Takes the standardized JSON generated above and creates an HTML formatted report.

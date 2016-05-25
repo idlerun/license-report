@@ -1,7 +1,9 @@
 var Converter = require("csvtojson").Converter;
 var converter = new Converter({});
 var Known = require('./known');
+var ToHtml = require('./to_html');
 var fs = require('fs');
+var js = require('jsonfile')
 
 // Process gradle license report output into grouped format
 // with standardized license names
@@ -27,10 +29,14 @@ converter.on("end_parsed", function (licenses) {
     var version = parts[2];
     result[match].push({name: groupId + ":" + artifactId, version})
   }
-  var path = "build/reports/dependency-license/licenses.json";
-  var output = JSON.stringify(result, null, '  ');
-  fs.writeFile(path, output);
-  console.log("Wrote JSON output to " + path)
+  var json_path = "./build/reports/dependency-license/licenses.json";
+  var html_path = "./build/reports/dependency-license/licenses.html";
+  js.writeFile(json_path, result, {spaces: 2}, function(err) {
+    console.log("Wrote JSON output to " + json_path);
+    var html = ToHtml.process(json_path);
+    fs.writeFile(html_path, html);
+    console.log("Wrote HTML output to " + html_path);
+  })
 });
 
 fs.createReadStream("build/reports/dependency-license/licenses.csv").pipe(converter);
