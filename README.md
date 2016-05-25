@@ -78,3 +78,86 @@ Run from the project folder. Will read in licenses.csv and output a licenses.jso
 #### HTML Output ([to_html.js](https://github.com/idlerun/license-report/blob/master/to_html.js))
 
 Takes the standardized JSON generated above and creates an HTML formatted report.
+
+<style>
+table {
+  border-collapse: collapse;
+}
+tbody {
+  vertical-align: top;
+}
+.licenseName {
+  font-weight: bold;
+}
+.licenseName, .artifacts {
+  padding: 10px;
+}
+.licenseRow {
+  border-bottom: 1pt solid black;
+}
+.artifactName, .artifactVersion {
+  padding: 0 10px;
+}
+</style>
+<table>
+<tbody>
+<tr class="licenseRow">
+  <td class="licenseName">BSD 3-Clause</td>
+  <td class="artifacts">
+    <table>
+    <tbody>
+        <tr>
+        <td class="artifactName">
+          antlr:antlr
+        </td>
+        <td class="artifactVersion">
+          2.7.7
+        </td>
+        </tr>
+        <tr>
+        <td class="artifactName">
+          org.antlr:stringtemplate
+        </td>
+        <td class="artifactVersion">
+          3.2.1
+        </td>
+        </tr>
+    </tbody>
+    </table>
+  </td>
+</tr>
+<tr class="licenseRow">
+  <td class="licenseName">Public Domain</td>
+  <td class="artifacts">
+    <table>
+    <tbody>
+        <tr>
+        <td class="artifactName">
+          aopalliance:aopalliance
+        </td>
+        <td class="artifactVersion">
+          1.0
+        </td>
+        </tr>
+    </tbody>
+    </table>
+  </td>
+</tr>
+<tr class="licenseRow">
+  <td class="licenseName">Apache 2.0</td>
+  <td class="artifacts">
+    <table>
+    <tbody>
+        <tr>
+        <td class="artifactName">
+          com.fasterxml.jackson.core:jackson-annotations
+        </td>
+        <td class="artifactVersion">
+          2.7.2
+        </td>
+        </tr>
+    </tbody>
+  </td>
+</tr>
+</tbody>
+</table>
