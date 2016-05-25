@@ -1,0 +1,7 @@
+{
+  "name": "license-processor",
+  "version": "1.0.0",
+  "dependencies": {
+    "csvtojson": "^0.5.12"
+  }
+}
