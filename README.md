@@ -16,7 +16,7 @@ Generate a CSV report using Gradle-License-Report Plugin
 
 Uses the jk1 fork of the plugin documented [here](https://github.com/jk1/Gradle-License-Report)
 
-### `build.gradle`
+### Configure Gradle Plugin
 
 Add the following to the top of `build.gradle` 
 (the `plugins` section must come before any other `build.gradle` statements)
@@ -30,6 +30,12 @@ licenseReport {
     renderer = new CsvReportRenderer()
     configurations = ['compile']
 }
+```
+
+Run the license report
+
+```bash
+gradle generateLicenseReport
 ```
 
 Now you have a CSV report at
